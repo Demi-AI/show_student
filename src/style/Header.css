@@ -1,0 +1,57 @@
+/* Header.js區塊樣式 */
+/* 固定导航栏样式 */
+.header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+    z-index: 1000; /* 保证位于最顶层 */
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px); /* 添加模糊效果 */
+  }
+  
+  /* 导航按钮样式 */
+  .nav-button {
+    color: #ffffff; /* 白色文字 */
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 10px 20px;
+    border: 2px solid #ffffff; /* 添加白色边框 */
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* 悬停时背景变浅 */
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+  }
+  
+  
+  /* 页面切换过渡效果 */
+  .fade-enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+  }

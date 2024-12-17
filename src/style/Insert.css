@@ -1,0 +1,109 @@
+/* InsertStudent.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .studentEdit {
+    margin-bottom: 1rem;
+  }
+  
+  .info {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .info p {
+    flex: 0 0 120px;
+    margin: 0;
+    font-weight: bold;
+    color: #555;
+    text-align: right;
+  }
+  
+  .info input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .info input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 4px rgba(76, 175, 80, 0.3);
+  }
+  
+  .error-message {
+    color: #f44336;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  button.submit {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button.submit:hover {
+    background-color: #45a049;
+  }
+  
+  button.submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button.delete {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button.delete:hover {
+    background-color: #e53935;
+  }
+  
+  button.delete:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

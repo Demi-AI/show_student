@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import '../style/App.css'
+import '../style/Get.css'
 import { asyncGet } from '../utils/fetch'
 import { api } from '../enum/api'
 import { Student } from '../interface/Student'
 import { resp } from '../interface/resp'
 
-function App() {
+function GetStudent() {
 
   const [students, setStudents] = useState<Array<Student>>([])
 
@@ -17,7 +17,7 @@ function App() {
      */
     if (!cache.current) {
       cache.current = true;
-      asyncGet(api.findAll).then((res: resp<Array<Student>>) => {
+      asyncGet(api.GetStudent).then((res: resp<Array<Student>>) => {
         if (res.code == 200) {
           setStudents(res.body)
         }
@@ -49,4 +49,4 @@ function App() {
   )
 }
 
-export default App
+export default GetStudent

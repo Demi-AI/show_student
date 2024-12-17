@@ -1,5 +1,5 @@
 export interface Student {
-    _id: string;
+    _id?: string;
 
     /**
      * 帳號

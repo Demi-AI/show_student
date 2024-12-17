@@ -21,8 +21,7 @@ export async function asyncPost(api: string, body: {} | FormData) {
         method: 'POST',
         credentials: 'include',
         headers:new Headers({
-            'Access-Control-Allow-Origin':"http://localhost:5173/",
-            'content-Type':"application/json"
+            'Content-Type':"application/json"
         }),
         body: body instanceof FormData?body:JSON.stringify(body),
         mode:"cors"
@@ -35,19 +34,53 @@ export async function asyncPost(api: string, body: {} | FormData) {
     }
 }
 
-export async function asyncPatch(api: string, body: {} | FormData) {
-    const res: Response = await fetch(api, {
-        method: 'PATCH',
-        headers:new Headers({
-            'Access-Control-Allow-Origin':"http://localhost:5173/",
-        }),
-        body: body instanceof FormData?body:JSON.stringify(body),
-        mode:"cors"
-    })
+export async function asyncDelete(api: string, body: { userName: string }) {
     try {
-        let data = res.json()
-        return data
+        const res: Response = await fetch(api, {
+            method: 'DELETE', 
+            credentials: 'include',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify(body),
+            mode: 'cors', 
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            throw new Error(data.message || '刪除請求失敗');
+        }
+
+        return data;
+
     } catch (error) {
-        console.error(error)
+        console.error('Delete request failed', error);
+        throw error; 
+    }
+}
+
+export async function asyncUpdate(api: string, body: { userName: string; name: string }) {
+    try {
+        const res: Response = await fetch(api, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify(body),
+            mode: 'cors',
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            throw new Error(data.message || '更新請求失敗');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Update request failed', error);
+        throw error;
     }
 }

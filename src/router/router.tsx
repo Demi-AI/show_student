@@ -1,25 +1,24 @@
 import { createHashRouter } from "react-router";
-import GetStudent from "../componets/GetStudent.tsx";
-import InsertStudent from "../componets/InsertStudent.tsx";
-import DeleteStudent from "../componets/DeleteStudent.tsx";
-import UpdateStudent from "../componets/UpdateStudent.tsx";
+import Get from "../view/Get.tsx";
+import { Insert } from "../view/Insert.tsx";
+import { Update } from "../view/Update.tsx";
 
 
 export const router = createHashRouter([
     {
         path: "/",
-        element: <GetStudent />,
+        element: <Get />,
     },
     {
-        path: "/add",
-        element: <InsertStudent />,
+        path: '/Get',
+        element: <Get />,
+      },
+    {
+        path: "/Insert",
+        element: <Insert />,
     },
     {
-        path: "/delete",
-        element: <DeleteStudent />,
-    },
-    {
-        path: "/update",
-        element: <UpdateStudent />,
+        path: "/Update:id",
+        element: <Update />,
     },
 ])

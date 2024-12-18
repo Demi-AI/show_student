@@ -15,11 +15,22 @@ export const Update: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true); // 加載狀態
     const navigate = useNavigate();
 
-    //修改
+    // 修改
     const submitHandler = async (info: Student) => {
-        const payload = { ...info, _id };
-        const res: resp<Student | null> = await asyncPut(`${api.Update}`, payload);
-        if(res.code == 200) {
+        const data = {
+            _id: info._id,
+            userName: info.userName,
+            sid: info.sid,
+            name: info.name,
+            department: info.department,
+            grade: info.grade,
+            class: info.class,
+            Email: info.Email,
+            absences: info.absences
+        };
+
+        const res: resp<Student | null> = await asyncPut(`${api.Update}`, data);
+        if (res.code == 200) {
             alert("修改成功");
             setStudent(res.body); // 更新本地數據
         } else {
@@ -27,11 +38,11 @@ export const Update: React.FC = () => {
         }
     };
 
-    //刪除
+    // 刪除
     const deleteHandler = async () => {
         const res: resp<boolean> = await asyncDelete(`${api.Delete}?id=${_id}`);
-        if(res.code == 200) {
-            if (res.body){
+        if (res.code == 200) {
+            if (res.body) {
                 alert("刪除成功");
                 navigate("/Get"); // 返回學生列表頁面
             } else {
@@ -49,7 +60,7 @@ export const Update: React.FC = () => {
             navigate("/Get");
             return;
         }
-    
+
         setLoading(true);
 
         asyncGet(`${api.Get}?id=${_id}`)

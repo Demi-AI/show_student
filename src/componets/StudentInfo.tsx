@@ -2,31 +2,32 @@ import { useState } from "react";
 import { Student } from "../interface/Student";
 
 type info = {
-    onClick?: Function
-    canEdit?: boolean
-    submit?: (info: Student) => Promise<any>,
-    title?: string,
-    submitText?: string,
-    deleteText?: string,
-    canDelete?: boolean,
-    deleteHandler?: Function,
+    onClick?: Function;
+    canEdit?: boolean;
+    submit?: (info: Student) => Promise<any>;
+    title?: string;
+    submitText?: string;
+    deleteText?: string;
+    canDelete?: boolean;
+    deleteHandler?: Function;
 }
 
 export const StudentInfo: React.FC<Student & info> = (student: Student & info) => {
     const clickHandler = () => {
         if (student.onClick) {
-            student.onClick()
+            student.onClick();
         }
     }
 
     if (student.canEdit) {
-        const [info, setInfo] = useState<Student>(student)
+        const [info, setInfo] = useState<Student>(student);
 
         const submit = () => {
             if (student.submit) {
-                student.submit(info)
+                student.submit(info);
             }
         }
+
         const deleteStudent = () => {
             if (student.deleteHandler) {
                 student.deleteHandler(info._id);
@@ -73,7 +74,7 @@ export const StudentInfo: React.FC<Student & info> = (student: Student & info) =
                     />
                 </div>
                 <div className="info">
-                    <p>年級：</p>
+                    <p>年级：</p>
                     <input
                         type="text"
                         value={info.grade}
@@ -85,7 +86,7 @@ export const StudentInfo: React.FC<Student & info> = (student: Student & info) =
                     />
                 </div>
                 <div className="info">
-                    <p>班級：</p>
+                    <p>班级：</p>
                     <input
                         type="text"
                         value={info.class}
@@ -109,12 +110,10 @@ export const StudentInfo: React.FC<Student & info> = (student: Student & info) =
                     />
                 </div>
                 <div className="info">
-                    <p>缺席次數：</p>
+                    <p>缺席次数：</p>
                     <input
                         type="number"
-                        name=""
-                        id=""
-                        value={info.absences ? info.absences:0}
+                        value={info.absences ? info.absences : 0}
                         onChange={(e) => {
                             const temp = { ...info };
                             temp.absences = Number(e.target.value);
@@ -128,12 +127,13 @@ export const StudentInfo: React.FC<Student & info> = (student: Student & info) =
                     </div>
                     {student.canDelete && (
                         <div className="delete" onClick={deleteStudent}>
-                            確認删除
+                            {student.deleteText}
                         </div>
                     )}
                 </div>
             </div>
-        );        
+        );
     }
-}
 
+    return null;
+};

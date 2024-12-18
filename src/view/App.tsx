@@ -14,7 +14,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Get />} />
             <Route path="/Get" element={<Get />} />
             <Route path="/Insert" element={<Insert />} />
-            <Route path="/Update:id" element={<Update />} />
+            <Route path="/Update/:id" element={<Update />} />
           </Routes>
         </div>
     </Router>

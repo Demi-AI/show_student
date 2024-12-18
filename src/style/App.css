@@ -7,12 +7,12 @@
 
 /* 頁面上方按鈕置中 */
 .top-nav {
-  background-color: #d3dbaa;
+  background-color: #acacac;
   color: white;
   display: flex;
   justify-content: center; /* 水平置中 */
   align-items: center; /* 垂直置中 */
-  padding: 10px 0;
+  padding: 20px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 20px 20px; /* 底部圓弧 */
 }
@@ -25,8 +25,8 @@
 .nav-button {
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
-  background-color: #718c4e99;
+  padding: 15px 20px;
+  background-color: #53535399;
   margin: 0 10px; /* 按鈕之間的間距 */
   border-radius: 50px; /* 圓弧型按鈕 */
   transition: background-color 0.3s, transform 0.2s;
@@ -35,7 +35,7 @@
 }
 
 .nav-button:hover {
-  background-color: #457f47;
+  background-color: #484848;
   transform: scale(1.05); /* 放大效果 */
 }
 
@@ -52,7 +52,7 @@
 /* 學生卡片 */
 .student {
   background: white;
-  border: 1px solid #477047;
+  border: 1px solid #616161;
   border-radius: 10px;
   padding: 15px;
   width: 250px;

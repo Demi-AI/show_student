@@ -7,6 +7,7 @@ type info = {
     submit?: (info: Student) => Promise<any>,
     title?: string,
     submitText?: string,
+    deleteText?: string,
     canDelete?: boolean,
     deleteHandler?: Function,
 }

@@ -18,7 +18,7 @@ export const router = createHashRouter([
         element: <Insert />,
     },
     {
-        path: "/Update:id",
+        path: "/Update/:id",
         element: <Update />,
     },
 ])

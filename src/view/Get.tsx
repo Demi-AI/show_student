@@ -4,8 +4,7 @@ import { asyncGet } from '../utils/fetch';
 import { api } from '../enum/api';
 import { Student } from '../interface/Student';
 import { resp } from '../interface/resp';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // 提取子組件
 const StudentCard = ({ student, onClick }: { student: Student; onClick:() => void }) => (
@@ -36,9 +35,11 @@ function Get() {
           setStudents(res.body);
         } else {
           console.error("Failed to fetch students:", res.message);
+          alert("無法加載學生數據，請稍後再試。");
         }
       }).catch(err => {
         console.error("Error fetching students:", err);
+        alert("加載學生數據時發生錯誤，請稍後重試。");
       });
     }
   }, []);
@@ -60,15 +61,12 @@ function Get() {
                 <Link to="/" className="nav-button">首頁</Link>
                 <Link to="/Get" className="nav-button">所有學生列表</Link>
                 <Link to="/Insert" className="nav-button">新增學生資料</Link>
-                <Link to="/Update" className="nav-button">修改學生資料</Link>
             </nav>
+            <div className="nav-button">刪除 & 修改學生資料：請先選擇一位學生</div>
       </div>
       <div className="main-content">
         {studentList}
       </div>
-      <nav>
-        <Link to="/" className="nav-button">返回學生列表</Link>
-      </nav>
     </div>
   );
 }

@@ -31,7 +31,7 @@ export const Update: React.FC = () => {
 
         const res: resp<Student | null> = await asyncPut(`${api.Update}`, data);
         if (res.code == 200) {
-            alert("修改成功");
+            alert("修改成功：已修改一筆學生資料。");
             setStudent(res.body); // 更新本地數據
         } else {
             alert(`修改失敗：${res.message}`);
@@ -43,7 +43,7 @@ export const Update: React.FC = () => {
         const res: resp<boolean> = await asyncDelete(`${api.Delete}?id=${_id}`);
         if (res.code == 200) {
             if (res.body) {
-                alert("刪除成功");
+                alert("刪除成功：已刪除一筆學生資料。");
                 navigate("/Get"); // 返回學生列表頁面
             } else {
                 alert(`刪除失敗：${res.message}`);
@@ -103,8 +103,8 @@ export const Update: React.FC = () => {
                     <Link to="/" className="nav-button">首頁</Link>
                     <Link to="/Get" className="nav-button">所有學生列表</Link>
                     <Link to="/Insert" className="nav-button">新增學生資料</Link>
-                    <Link to="/Update" className="nav-button">修改學生資料</Link>
                 </nav>
+                <div className="nav-button">刪除 & 修改學生資料</div>
             </div>
             <StudentInfo
                 {...studentInfo} // 傳入學生數據

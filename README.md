@@ -1,50 +1,138 @@
-# React + TypeScript + Vite
+功能
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create: 新增學生資料
+Read: 查詢學生資料
+Update: 更新學生資料
+Delete: 刪除學生資料
 
-Currently, two official plugins are available:
+安裝與執行指引
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 環境需求
+前端開發 : React + ts
+後端開發 : Node.js
+資料庫 : MongoDB
+API測試 : PostMan
+安裝套件 : npm
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+API 規格說明
 
-- Configure the top-level `parserOptions` property like this:
+查詢學生資料(Read)：
+請求方式 : GET 方法  /api/v1/user/findAll
+格式 : JSON
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-回應-
+{
+    "code": 200,
+    "message": "Students retrieved successfully",
+    "body": {
+        "userName": "tkuim1229",
+        "name": "廖霆宇",
+        "department": "電機工程學系",
+        "grade": "三年級",
+        "class": "C",
+        "Email": "anpersonliao@gmail.com"
+        "_id": "6764221c016f7db4255ea947",
+        "__v": 0
+    }
+}
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+新增學生資料(Create):
+請求方式 : POST 方法 /api/v1/user/insertOne
+格式 : JSON
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+-請求參數-
+Body :
+{
+    "userName": "tkuim1229",
+    "name": "廖霆宇",
+    "department": "電機工程學系",
+    "grade": "三年級",
+    "class":"C",
+    "Email": "anpersonliao@gmail.com"
+}
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+-回應-
+成功：
+{
+    "code": 200,
+    "message": "",
+    "body": {
+        "userName": "tkuim1229",
+        "sid": "47",
+        "name": "廖霆宇",
+        "department": "電機工程學系",
+        "grade": "三年級",
+        "class": "C",
+        "Email": "anpersonliao@gmail.com",
+        "_id": "6764221c016f7db4255ea947",
+        "__v": 0
+    }
+}
+失敗 :
+{
+    "code": 403,
+    "message": "座號已存在"
+}
+
+刪除學生資料(Delete):
+請求方式 : DELETE 方法 /api/v1/user/deleteById
+格式 : JSON
+
+-請求參數-
+Body :
+{
+    "_id": "6764221c016f7db4255ea947"
+}
+
+-回應-
+成功 :
+{
+    "code": 200,
+    "message": "sucess",
+    "body": {
+        "acknowledged": true,
+        "deletedCount": 1
+    }
+}
+失敗 :
+{
+  "code": 404,
+  "message": "User not found"
+}
+
+更新學生資料(Update);
+請求方式 : PUT 方法 /api/v1/user/updateNameByID
+格式 : JSON
+
+-請求參數-
+Body :
+{
+    "_id": "6764221c016f7db4255ea947",
+    "userName": "tkuim9229"
+}
+
+-回應-
+成功：
+{
+    "code": 200,
+    "message": "Update successful",
+    "body": {
+        "_id": "6764221c016f7db4255ea947",
+        "userName": "tkuim9229",
+        "sid": "47",
+        "name": "廖霆宇",
+        "department": "電機工程學系",
+        "grade": "三年級",
+        "class": "C",
+        "Email": "anpersonliao@gmail.com",
+        "absences": 0,
+        "__v": 0
+    }
+}
+失敗 :
+{
+    "code": 404,
+    "message": "User not found"
+}
+

@@ -30,7 +30,7 @@ function Get() {
     if (!cache.current) {
       cache.current = true;
       asyncGet(api.Get).then((res: resp<Array<Student>>) => {
-        if (res.code === 200) {
+        if (res.code == 200) {
           console.log(res.body); // Debug 確認返回的數據
           setStudents(res.body);
         } else {

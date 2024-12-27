@@ -53,7 +53,8 @@
         "Email": "anpersonliao@gmail.com",
         "_id": "6764221c016f7db4255ea947",
         "__v": 0
-    }
+    },
+    ...
 }
 ```
 
@@ -170,3 +171,7 @@
     "message": "User not found"
 }
 ```
+
+### **架構圖＆流程圖*
+![圖片描述](./image.jpg)
+

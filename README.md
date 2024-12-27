@@ -174,14 +174,16 @@
 
 ### **架構圖＆流程圖**
 ![圖片描述](./image.jpg)
-```
 
 ### **流程解說**
-1.  前端觸發操作（例如新增、刪除、更新、查詢）。
-2.	發送 HTTP 請求至後端。
-3.	後端 Router 匹配到對應的 API 路徑。
-4.	Router 調用對應的 Controller 方法處理邏輯。
-5.	Controller 調用 Service 完成業務操作。
-6.	Service 與 Model 交互進行 MongoDB 的 CRUD 操作。
-7.	後端將結果回傳給前端。
-8.	前端更新畫面，反映數據變化。
+
+1. **前端觸發操作**（例如新增、刪除、更新、查詢）。
+2. **發送 HTTP 請求至後端**。
+3. **後端 Router 匹配到對應的 API 路徑**。
+4. **Router 調用對應的 Controller 方法處理邏輯**。
+5. **Controller 調用 Service 完成業務操作**。
+6. **Service 與 Model 交互進行 MongoDB 的 CRUD 操作**。
+7. **後端將結果回傳給前端**。
+8. **前端更新畫面，反映數據變化**。
+
+
